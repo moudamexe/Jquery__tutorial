@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>demo</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="Css/style3.css">
+</head>
+<body>
+	<div class="main">
+		<ul class="main-tabs">
+			<li rel="panel1" class="active">panel1</li>
+			<li rel="panel2">panel2</li>
+			<li rel="panel3">panel3</li>
+			<li rel="panel4">panel4</li>
+		</ul>
+
+		<div id="panel1" class="panel active">
+			panel1って言っても<br>
+			特に言うことは<br>
+			ございません。<br>
+			ご了承ください。<br>
+		</div>
+
+		<div id="panel2" class="panel">
+			僕たち、<br>
+			いつも元気な<br>
+			panel2<br>
+			またいつでも開いてくれよな！<br>
+		</div>
+
+		<div id="panel3" class="panel">
+			こんなところ<br>
+			来る意味ないって<br>
+			panel2に行った方が<br>
+			面白いって.<br>
+		</div>
+
+		<div id="panel4" class="panel">
+			私たちはpanel4.<br>
+			気が向いたときにあらわれる<br>
+			ただのコンテンツ<br>
+			いつもお待ちしております。。<br>
+		</div>
+	</div>
+
+	<div class="main">
+		<ul class="main-tabs">
+			<li rel="panel5" class="active">panel5</li>
+			<li rel="panel6">panel6</li>
+			<li rel="panel7">panel7</li>
+			<li rel="panel8">panel8</li>
+		</ul>
+
+		<div id="panel5" class="panel active">
+			panel5って言っても<br>
+			特に言うことは<br>
+			ございません。<br>
+			ご了承ください。<br>
+		</div>
+
+		<div id="panel6" class="panel">
+			僕たち、<br>
+			いつも元気な<br>
+			panel6<br>
+			またいつでも開いてくれよな！<br>
+		</div>
+
+		<div id="panel7" class="panel">
+			こんなところ<br>
+			来る意味ないって<br>
+			panel6に行った方が<br>
+			面白いって.<br>
+		</div>
+
+		<div id="panel8" class="panel">
+			私たちはpanel8.<br>
+			気が向いたときにあらわれる<br>
+			ただのコンテンツ<br>
+			いつもお待ちしております。。<br>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$(function(){
+			$('.main .main-tabs li').on('click', function() {
+				var panel = $(this).closest('.main');
+				panel.find('.main-tabs li.active').removeClass('active');
+				$(this).addClass('active');
+
+				var panelToShow = $(this).attr('rel');
+
+				panel.find('.panel.active').fadeOut(500, showNextPanel);
+
+				function showNextPanel() {
+					$(this).removeClass('active');
+
+					$('#'+ panelToShow).fadeIn(500, function() {
+						$(this).addClass('active')
+					})
+				}
+			})
+		})
+	</script>
+</body>
+</html>
